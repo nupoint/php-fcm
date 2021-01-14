@@ -14,6 +14,19 @@ PHP application server implementation for Firebase Cloud Messaging.
 
 
 #Setup
+
+Add repo to composer.json
+```
+...
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/nupoint/php-fcm"
+    }
+]
+...
+```
+
 The recommended way of installing is using Composer.
 
 command line
