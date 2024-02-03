@@ -19,14 +19,18 @@ class MessageTest extends PhpFcmTestCase
 
     public function testThrowsExceptionWhenDifferentRecepientTypesAreRegistered()
     {
-        $this->setExpectedException(\InvalidArgumentException::class, 'mixed recepient types are not supported by FCM');
+        // $this->setExpectedException(\InvalidArgumentException::class, 'mixed recepient types are not supported by FCM');
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('mixed recepient types are not supported by FCM');
         $this->fixture->addRecipient(new Topic('breaking-news'))
             ->addRecipient(new Device('token'));
     }
 
     public function testThrowsExceptionWhenNoRecepientWasAdded()
     {
-        $this->setExpectedException(\UnexpectedValueException::class, 'message must have at least one recipient');
+        // $this->setExpectedException(\UnexpectedValueException::class, 'message must have at least one recipient');
+        $this->expectException(\UnexpectedValueException::class);
+        $this->expectExceptionMessage('message must have at least one recipient');
         $this->fixture->jsonSerialize();
     }
 
